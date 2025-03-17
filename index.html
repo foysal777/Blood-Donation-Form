@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Form</title>
+    <!-- Website Icon (Favicon) -->
+    <link rel="icon" href="images/logo.png" type="image/">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles for Media Queries -->
+    <style>
+        /* For devices smaller than 768px */
+        @media screen and (max-width: 768px) {
+            .form-container {
+                padding: 8px;
+            }
+
+            .form-container label {
+                font-size: 10px;
+            }
+
+            .form-container input[type="text"] {
+                font-size: 14px;
+            }
+
+            .form-container input[type="date"] {
+                font-size: 14px;
+            }
+
+            .form-container button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .grid-cols-1 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* For very small devices like phones (max-width: 480px) */
+        @media screen and (max-width: 480px) {
+            .form-container {
+                padding: 8px;
+            }
+
+            .form-container label {
+                font-size: 12px;
+            }
+
+            .form-container input[type="text"] {
+                font-size: 12px;
+            }
+
+            .form-container input[type="date"] {
+                font-size: 12px;
+            }
+
+            .form-container button {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            .grid-cols-1 {
+                grid-template-columns: 1fr;
+            }
+            .head{
+
+                font-size: 25px !important;
+            }
+            body{
+                padding-top: 400px;
+            }
+            .logo{
+                font-size: 10px;
+            }
+            .water{
+
+                padding-top: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center w-full h-screen relative">
+
+    <!-- Watermark -->
+    <img src="images/watermark.png" alt="Watermark" class="water absolute w-2/3 h-auto opacity-50 mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    
+    <!-- Added "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ" -->
+    <div class="absolute top-10 left-1/2 transform -translate-x-1/2 text-xl font-bold text-center">
+        <p>بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p> 
+    </div>
+   
+    <div class="my pt-28">
+        <div class="w-full max-w-screen-lg relative z-10 px-4 py-6 form-container">
+            <div class="flex items-center mb-6">
+                <!-- Logo -->
+                <img src="logo.png" alt="Logo" class="logo w-24 h-24 mr-4">
+                <div class="text-center flex-grow">
+                    <br>
+                    <h2 class="head text-4xl font-bold text-red-600">দক্ষিণ কুলিয়া মানবতার কল্যাণ ফাউন্ডেশন</h2>
+                    <p class="text-gray-700 font-bold">🏠দঃ কুলিয়া, দেবহাটা, সাতক্ষীরা</p>
+                    <h3 class="bg-gray-400 text-black px-4 py-1 rounded mt-2 inline-block">ডোনার পরিচিতি ফোরাম</h3>
+                </div>
+            </div>
+
+            <form id="donationForm" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Address Field -->
+                <label class="block">
+                    <span class="text-gray-700">ঠিকানা:</span>
+                    <input type="text" class="mt-1 block w-full p-2 border border-red-500 rounded focus:border-purple-500" placeholder="ঠিকানা লিখুন" required>
+                </label>
+
+                <!-- Date Field -->
+                <label class="block">
+                    <span class="text-gray-700">তারিখ:</span>
+                    <input type="date" id="englishDate" class="mt-1 block w-full p-2 border border-red-500 rounded focus:border-purple-500" placeholder="তারিখ নির্বাচন করুন" required>
+                </label>
+
+                <!-- Donor Name Field -->
+                <label class="block">
+                    <span class="text-gray-700">রক্তদাতা:</span>
+                    <input type="text" class="mt-1 block w-full p-2 border border-red-500 rounded focus:border-purple-500" placeholder="রক্তদাতা নাম লিখুন" required>
+                </label>
+
+                <!-- Donor Information Field -->
+                <label class="block">
+                    <span class="text-gray-700">তম:</span>
+                    <input type="text" class="mt-1 block w-full p-2 border border-red-500 rounded focus:border-purple-500" required>
+                </label>
+
+                <!-- Blood Donation Location Field -->
+                <label class="block md:col-span-2">
+                    <span class="text-gray-700">রক্তদানের স্থান:</span>
+                    <input type="text" class="mt-1 block w-full p-2 border border-red-500 rounded focus:border-purple-500" placeholder="রক্তদানের স্থান লিখুন" required>
+                </label>
+
+                <!-- Mobile Number Field -->
+                <label class="block">
+                    <span class="text-gray-700">মোবাইল নম্বর:</span>
+                    <input type="number" class="mt-1 block w-full p-2 border border-red-500 rounded focus:border-purple-500" placeholder="মোবাইল নম্বর লিখুন" required>
+                </label>
+
+                <!-- Image Upload Field -->
+                <label class="block">
+                    <span class="text-gray-700">ছবি আপলোড করুন:</span>
+                    <input type="file" class="mt-1 block w-full p-2 border border-red-500 rounded focus:border-purple-500" required>
+                </label>
+            </form>
+
+            <!-- Blood Group Selection -->
+            <div class="mt-4">
+                <span class="text-gray-700">রক্ত গ্রুপ:</span>
+                <div class="grid grid-cols-4 gap-4 mt-2">
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="blood_group" class="w-5 h-5 text-red-600 checked:bg-red-500" required>
+                        <span>A+</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="blood_group" class="w-5 h-5 text-red-600 checked:bg-red-500" required>
+                        <span>B+</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="blood_group" class="w-5 h-5 text-red-600 checked:bg-red-500" required>
+                        <span>O+</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="blood_group" class="w-5 h-5 text-red-600 checked:bg-red-500" required>
+                        <span>AB+</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="blood_group" class="w-5 h-5 text-red-600 checked:bg-red-500" required>
+                        <span>A-</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="blood_group" class="w-5 h-5 text-red-600 checked:bg-red-500" required>
+                        <span>B-</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="blood_group" class="w-5 h-5 text-red-600 checked:bg-red-500" required>
+                        <span>O-</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="blood_group" class="w-5 h-5 text-red-600 checked:bg-red-500" required>
+                        <span>AB-</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-6 text-center">
+                <button id="submitButton" class="bg-red-500 text-white px-6 py-2 rounded-lg shadow hover:bg-green-600">সাবমিট করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-300">
+        <p>Form submitted successfully!</p>
+    </div>
+
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function (event) {
+            event.preventDefault();  // Prevent the form from submitting traditionally
+            
+            // Check if form is valid
+            var form = document.getElementById("donationForm");
+            if (form.checkValidity()) {
+                // Show the success toast
+                let toast = document.getElementById("toast");
+                toast.classList.remove("opacity-0");
+                toast.classList.add("opacity-100");
+
+                // Hide the toast after 3 seconds
+                setTimeout(function () {
+                    toast.classList.remove("opacity-100");
+                    toast.classList.add("opacity-0");
+                }, 3000);
+
+                // Optionally, reset the form (if required)
+                form.reset();
+            } else {
+                // If form is not valid, show a message or alert
+                alert("সব গুলো ফিল্ড পূরণ করা হয় নি ।😡");
+            }
+        });
+    </script>
+</body>
+
+</html>
