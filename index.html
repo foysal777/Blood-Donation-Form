@@ -99,7 +99,7 @@
                 <!-- Logo -->
                 <img src="logo.png" alt="Logo" class="logo w-24 h-24 mr-4">
                 <div class="text-center flex-grow">
-                    <p class="font-bold text-2xl">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p> 
+                    <p class="font-bold text-2xl">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p> 
                     <h2 class="head text-4xl font-bold text-red-600">দক্ষিণ কুলিয়া মানবতার কল্যাণ ফাউন্ডেশন</h2>
                     <p class="text-gray-700 font-bold">🏠দঃ কুলিয়া, দেবহাটা, সাতক্ষীরা</p>
                     <h3 class="bg-gray-400 text-black px-4 py-1 rounded mt-2 inline-block">ডোনার পরিচিতি ফোরাম</h3>
@@ -128,7 +128,7 @@
                 <!-- Donor Information Field -->
                 <label class="block">
                     <span class="text-gray-700">তম:</span>
-                    <input type="text" class="mt-1 block w-full p-2 border border-red-500 rounded focus:border-purple-500" required>
+                    <input type="text" class="mt-1 block w-full p-2 border border-red-500 rounded  focus:border-purple-500 " placeholder="তম লিখুন" required>
                 </label>
 
                 <!-- Blood Donation Location Field -->
@@ -197,36 +197,47 @@
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white p-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-500">
-        <p>Form submitted successfully!</p>
-    </div>
+<!-- Toast Notification -->
+<div id="toast"
+    class="fixed z-80 top-20 left-1/2 transform -translate-x-1/2 bg-teal-500 text-white p-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-300 backdrop-blur-md bg-opacity-90">
+    <p>ফরম সফলভাবে জমা হয়েছে!😁😁</p>
+</div>
 
-    <script>
-        document.getElementById("submitButton").addEventListener("click", function (event) {
-            event.preventDefault();  
-            
-            // Check if form is valid
-            var form = document.getElementById("donationForm");
-            if (form.checkValidity()) {
-                // Show the success toast
-                let toast = document.getElementById("toast");
-                toast.classList.remove("opacity-0");
-                toast.classList.add("opacity-100");
+<script>
+    document.getElementById("submitButton").addEventListener("click", function (event) {
+        event.preventDefault();  
 
-                // Hide the toast after 3 seconds
-                setTimeout(function () {
-                    toast.classList.remove("opacity-100");
-                    toast.classList.add("opacity-0");
-                }, 5000);
+        var form = document.getElementById("donationForm");
+        if (form.checkValidity()) {
+            // Add overlay effect
+            let overlay = document.createElement("div");
+            overlay.id = "overlay";
+            overlay.classList.add("fixed", "top-0", "left-0", "w-full", "h-full", "bg-black", "bg-opacity-50", "backdrop-blur-sm", "z-40");
+            document.body.appendChild(overlay);
 
-            
-                form.reset();
-            } else {
-                
-                alert("সব গুলো ফিল্ড পূরণ করা হয় নি ।😡");
-            }
-        });
-    </script>
+            // Show the success toast
+            let toast = document.getElementById("toast");
+            toast.classList.remove("opacity-0");
+            toast.classList.add("opacity-100", "z-50");
+
+            // Hide the toast after 3 seconds
+            setTimeout(function () {
+                toast.classList.remove("opacity-100");
+                toast.classList.add("opacity-0");
+
+                // Remove overlay after toast disappears
+                setTimeout(() => {
+                    document.body.removeChild(overlay);
+                }, 500);
+            }, 5000);
+
+            form.reset();
+        } else {
+            alert("সব গুলো ফিল্ড পূরণ করা হয় নি ।😡");
+        }
+    });
+</script>
+
 </body>
 
 </html>
