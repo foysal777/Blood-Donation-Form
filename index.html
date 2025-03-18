@@ -71,7 +71,7 @@
                 font-size: 20px !important;
             }
             body{
-                padding-top: 200px;
+                padding-top: 150px;
             }
             .logo{
                 font-size: 10px;
@@ -197,13 +197,13 @@
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-300">
+    <div id="toast" class="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white p-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-500">
         <p>Form submitted successfully!</p>
     </div>
 
     <script>
         document.getElementById("submitButton").addEventListener("click", function (event) {
-            event.preventDefault();  // Prevent the form from submitting traditionally
+            event.preventDefault();  
             
             // Check if form is valid
             var form = document.getElementById("donationForm");
@@ -217,12 +217,12 @@
                 setTimeout(function () {
                     toast.classList.remove("opacity-100");
                     toast.classList.add("opacity-0");
-                }, 3000);
+                }, 5000);
 
-                // Optionally, reset the form (if required)
+            
                 form.reset();
             } else {
-                // If form is not valid, show a message or alert
+                
                 alert("সব গুলো ফিল্ড পূরণ করা হয় নি ।😡");
             }
         });
