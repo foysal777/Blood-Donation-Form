@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Form</title>
+    <link rel="icon" href="images/logo.png" type="image/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media screen and (max-width: 768px) {
+            .form-container {
+                padding: 8px;
+            }
+            .form-container label {
+                font-size: 10px;
+            }
+            .form-container input[type="text"],
+            .form-container input[type="date"] {
+                font-size: 14px;
+            }
+            .form-container button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            .grid-cols-1 {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .form-container {
+                padding: 8px;
+            }
+            .form-container label {
+                font-size: 12px;
+            }
+            .form-container input[type="text"],
+            .form-container input[type="date"] {
+                font-size: 12px;
+            }
+            .form-container button {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            .head {
+                font-size: 20px !important;
+            }
+            body {
+                padding-top: 130px;
+            }
+            .logo {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center w-full h-screen relative">
+    <div class="my pt-28">
+        <div class="w-full max-w-screen-lg relative z-10 px-4 py-6 form-container">
+            <div class="flex items-center mb-6">
+                <img src="images/logo.png" alt="Logo" class="logo w-24 h-24 mr-4">
+                <div class="text-center flex-grow">
+                    <p class="font-bold text-2xl">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                    <h2 class="head text-4xl font-bold text-red-600">দক্ষিণ কুলিয়া মানবতার কল্যাণ ফাউন্ডেশন</h2>
+                    <p class="text-gray-700 font-bold">🏠দঃ কুলিয়া, দেবহাটা, সাতক্ষীরা</p>
+                    <h3 class="bg-gray-400 text-black px-4 py-1 rounded mt-2 inline-block">ডোনার পরিচিতি ফোরাম</h3>
+                </div>
+            </div>
+
+            <form id="donationForm" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="block">
+                    <span class="text-red-500">ঠিকানা:</span>
+                    <input type="text" id="address" class="mt-1 block w-full p-2 border border-red-500 rounded" required>
+                </label>
+                <label class="block">
+                    <span class="text-red-500">তারিখ:</span>
+                    <input type="date" id="date" class="mt-1 block w-full p-2 border border-red-500 rounded" required>
+                </label>
+                <label class="block">
+                    <span class="text-red-500">রক্তদাতা:</span>
+                    <input type="text" id="name" class="mt-1 block w-full p-2 border border-red-500 rounded" required>
+                </label>
+                <label class="block">
+                    <span class="text-red-500">তম:</span>
+                    <input type="text" id="donor_position" class="mt-1 block w-full p-2 border border-red-500 rounded" required>
+                </label>
+                <label class="block md:col-span-2">
+                    <span class="text-red-500">রক্তদানের স্থান:</span>
+                    <input type="text" id="donation_place" class="mt-1 block w-full p-2 border border-red-500 rounded" required>
+                </label>
+                <label class="block">
+                    <span class="text-red-500">মোবাইল নম্বর:</span>
+                    <input type="text" id="phone" class="mt-1 block w-full p-2 border border-red-500 rounded" required>
+                </label>
+                <label class="block">
+                    <span class="text-red-500">ছবি আপলোড করুন:</span>
+                    <input type="file" id="imageUpload" class="mt-1 block w-full p-2 border border-red-500 rounded" >
+                </label>
+                <label class="block">
+                    <span class="text-red-500">রক্ত গ্রুপ:</span>
+                    <select id="blood_group" class="mt-1 block w-full p-2 border border-red-500 rounded" required>
+                        <option value="A+">A+</option>
+                        <option value="B+">B+</option>
+                        <option value="O+">O+</option>
+                        <option value="AB+">AB+</option>
+                        <option value="A-">A-</option>
+                        <option value="B-">B-</option>
+                        <option value="O-">O-</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </label>
+            </form>
+
+            <div class="mt-6 text-center">
+                <button id="submitButton" class="bg-red-500 text-white hover:bg-green-500 px-6 py-2 rounded-lg shadow">সাবমিট করুন</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js" ></script>
+</body>
+</html>
