@@ -1,10 +1,10 @@
 async function uploadImageToCloudinary(file) {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "my_preset2"); // Cloudinary preset
+    formData.append("upload_preset", "shimanto"); // Cloudinary preset
 
     try {
-        let response = await fetch("https://api.cloudinary.com/v1_1/dbd5yj7or/image/upload", {
+        let response = await fetch("https://api.cloudinary.com/v1_1/di2tzvjoe/image/upload", {
             method: "POST",
             body: formData
         });
@@ -44,13 +44,13 @@ document.getElementById("submitButton").addEventListener("click", async function
     let donation_place = document.getElementById("donation_place").value.trim();
     let imageUrl = "";
 
-    // 🟢 চেক করা হবে যে বাধ্যতামূলক ফিল্ডগুলো ফাঁকা কি না
+    //  চেক করা হবে যে বাধ্যতামূলক ফিল্ডগুলো ফাঁকা কি না
     if (!name || !address || !donor_position || !date || !blood_group || !phone || !donation_place) {
         alert("⚠️ অনুগ্রহ করে সব প্রয়োজনীয় তথ্য পূরণ করুন।");
         return; // সাবমিট বন্ধ হবে
     }
 
-    // 🟢 চেক করা হবে ছবি দেওয়া হয়েছে কি না
+    //  চেক করা হবে ছবি দেওয়া হয়েছে কি না
     if (fileInput.files.length > 0) {
         console.log("Selected file:", fileInput.files[0]);
         imageUrl = await uploadImageToCloudinary(fileInput.files[0]);
@@ -71,7 +71,7 @@ document.getElementById("submitButton").addEventListener("click", async function
     console.log("Final Form Data:", formData);
 
     try {
-        let response = await fetch("http://127.0.0.1:8000/blood-donation/donors/", {
+        let response = await fetch("https://blood-donation-backend-omega-nine.vercel.app/blood-donation/donors/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
