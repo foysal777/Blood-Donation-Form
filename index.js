@@ -1,7 +1,7 @@
 async function uploadImageToCloudinary(file) {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "shimanto"); // Cloudinary preset
+    formData.append("upload_preset", "shimanto"); 
 
     try {
         let response = await fetch("https://api.cloudinary.com/v1_1/di2tzvjoe/image/upload", {
@@ -65,7 +65,7 @@ document.getElementById("submitButton").addEventListener("click", async function
         blood_group,
         phone,
         donation_place,
-        image_url: imageUrl  // ছবির লিংক সংরক্ষণ
+        image_url: imageUrl 
     };
 
     console.log("Final Form Data:", formData);
